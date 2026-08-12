@@ -1,0 +1,120 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTP probes of every Zefr-controlled host discovered via DNS and certificate transparency
+note: >-
+  Zefr publishes no security.txt, api-catalog or ai-plugin.json on any host. The only
+  real /.well-known documents served anywhere on zefr.com are the OpenID Connect /
+  OAuth 2.0 Authorization Server Metadata documents on login.zefr.com — Zefr's custom
+  Auth0 domain (CNAME zefr-prod-cd-qq34zjzlcmyzcxao.edge.tenants.auth0.com), which
+  fronts the Zefr Brand Suitability Suite at suitability.zefr.com. The apex zefr.com
+  answers 404 with an HTML shell for every /.well-known path; suitability.zefr.com
+  answers 400 with an HTML shell. Neither is a document.
+hosts:
+- host: login.zefr.com
+  role: identity provider (Auth0 custom domain) for the Zefr Brand Suitability Suite
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: zefr-openid-configuration.json
+    document: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: zefr-oauth-authorization-server.json
+    document: true
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    document: true
+    saved: false
+    note: JWKS not saved verbatim — signing keys rotate; the URI is recorded in the discovery document.
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: zefr.com
+  role: marketing site (Craft CMS)
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+    note: HTML 404 shell, not a document.
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 404
+    document: false
+- host: suitability.zefr.com
+  role: Zefr Brand Suitability Suite application (login required)
+  paths:
+  - path: /.well-known/security.txt
+    status: 400
+    document: false
+    note: HTML error shell for every /.well-known path.
+  - path: /.well-known/agent-card.json
+    status: 400
+    document: false
+  - path: /.well-known/agent.json
+    status: 400
+    document: false
+  - path: /llms.txt
+    status: 400
+    document: false
+- host: api.zefr.com
+  role: production API gateway (Google Apigee) — no proxy resolves at any probed basepath
+  paths:
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+    note: 'Apigee fault body: "Unable to identify proxy for host: secure-zefr".'
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: api2.zefr.com
+  role: production API host (Google Cloud load balancer)
+  paths:
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+summary:
+  documents_served: 3
+  security_txt: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
+  openid_configuration: true
+  oauth_authorization_server: true

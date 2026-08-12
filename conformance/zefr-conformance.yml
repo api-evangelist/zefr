@@ -1,0 +1,123 @@
+generated: '2026-08-12'
+method: probed
+source: https://login.zefr.com/.well-known/openid-configuration
+note: >-
+  Assertions are limited to what could be verified anonymously. Zefr publishes no OpenAPI,
+  no AsyncAPI, no GraphQL SDL and no API reference, so every contract-level standard is
+  recorded as unverifiable rather than as a failure. The OIDC/OAuth entries are read from
+  Zefr's own live discovery documents on login.zefr.com.
+standards:
+- id: oidc
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/.well-known/openid-configuration
+    status: 200
+    note: >-
+      Serves a complete discovery document with issuer, authorization_endpoint,
+      token_endpoint, userinfo_endpoint, jwks_uri, response_types_supported,
+      subject_types_supported and id_token_signing_alg_values_supported.
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/oauth/token
+    status: 200
+    note: Authorization code, client credentials, refresh token and device code grants advertised.
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/.well-known/oauth-authorization-server
+    status: 200
+- id: rfc7636
+  name: PKCE (RFC 7636)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/.well-known/openid-configuration
+    status: 200
+    note: code_challenge_methods_supported includes S256.
+- id: rfc7009
+  name: OAuth 2.0 Token Revocation (RFC 7009)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/oauth/revoke
+    status: 200
+    note: revocation_endpoint advertised in discovery.
+- id: rfc7591
+  name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/oidc/register
+    status: 200
+    note: registration_endpoint advertised in discovery; registration was not attempted.
+- id: rfc8628
+  name: OAuth 2.0 Device Authorization Grant (RFC 8628)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/oauth/device/code
+    status: 200
+    note: device_authorization_endpoint advertised in discovery.
+- id: rfc9449
+  name: OAuth 2.0 Demonstrating Proof of Possession (DPoP, RFC 9449)
+  conforms: true
+  evidence:
+    url: https://login.zefr.com/.well-known/openid-configuration
+    status: 200
+    note: dpop_signing_alg_values_supported = [ES256].
+- id: rfc9116
+  name: security.txt (RFC 9116)
+  conforms: false
+  evidence:
+    url: https://zefr.com/.well-known/security.txt
+    status: 404
+- id: openapi
+  name: OpenAPI Specification
+  conforms: false
+  evidence:
+    url: https://api.zefr.com/openapi.json
+    status: 404
+    note: >-
+      No OpenAPI is published at any Zefr-controlled host. api.zefr.com is a Google Apigee
+      gateway that returns an ApplicationNotFound fault for every probed basepath.
+- id: rfc9457
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: unknown
+  evidence:
+    url: https://api.zefr.com/
+    status: 404
+    note: >-
+      The gateway returns a proprietary Apigee fault envelope
+      ({"fault":{"faultstring":...,"detail":{"errorcode":...}}}), not application/problem+json.
+      This is the gateway default, not necessarily the product API's error contract.
+- id: graphql
+  name: GraphQL
+  conforms: false
+  evidence:
+    url: https://api.zefr.com/graphql
+    status: 404
+- id: mcp
+  name: Model Context Protocol
+  conforms: false
+  evidence:
+    url: https://zefr.com/llms.txt
+    status: 404
+    note: No MCP server, llms.txt or agent surface published on any host.
+industry_frameworks:
+- id: garm
+  name: GARM Brand Safety and Suitability Framework (WFA)
+  conforms: claimed
+  evidence:
+    url: https://zefr.com/technology/standards-suitability-framework
+    status: 200
+    note: >-
+      Zefr markets content-level decisioning against the 4A's and GARM brand safety and
+      suitability standards. This is a product/editorial framework claim on Zefr's own
+      marketing pages, not a machine-verifiable API conformance assertion, and it is recorded
+      as `claimed` for that reason.
+certifications:
+  published: []
+  note: >-
+    Zefr operates a Drata-hosted trust center at https://trust.zefr.com, but it is behind a
+    Cloudflare bot challenge (HTTP 403 to every non-browser client), so no certification
+    could be read and none is asserted here. See security/zefr-trust-center.yml.

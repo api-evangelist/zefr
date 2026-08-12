@@ -1,0 +1,65 @@
+generated: '2026-08-12'
+method: searched
+source: https://zefr.com/ (full site walk), https://zefr.com/support, DNS + certificate-transparency host enumeration
+note: >-
+  Zefr publishes no operational lifecycle surface of any kind for developers. There is no
+  status page, no versioning policy, no deprecation policy, no SLA and no changelog anywhere
+  on a Zefr-controlled host. This file records those absences with the probes that established
+  them. No StatusPage or Deprecation pointer is emitted in apis.yml, because Zefr serves
+  neither.
+status_page:
+  present: false
+  url: null
+  evidence:
+  - url: https://status.zefr.com/
+    status: 000
+    note: NXDOMAIN — no status subdomain is delegated.
+  - url: https://zefr.com/support
+    status: 200
+    note: >-
+      The only support page on the site renders the placeholder "Waiting on Content Entry..."
+      and links to no status, help center or incident history.
+  third_party_checked:
+  - statuspage.io
+  - status.io
+  - instatus.com
+  - betteruptime.com
+  result: no Zefr status page found on any hosted status provider
+versioning:
+  policy_published: false
+  scheme: null
+  note: >-
+    No versioning policy is published. The production gateway host api.zefr.com answers
+    /v1 with an Apigee ApplicationNotFound fault, so no version segment could be confirmed
+    from the outside either.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: false
+  note: >-
+    No deprecation or sunset policy is published. RFC 8594 Sunset/Deprecation header support
+    could not be observed because no Zefr API endpoint responds to an anonymous request.
+sla:
+  published: false
+  note: >-
+    No public SLA. Zefr's Terms of Service (https://zefr.com/terms-of-services) govern the
+    marketing site and general use; any service-level commitment would sit in a negotiated
+    customer agreement.
+changelog:
+  present: false
+  url: null
+  evidence:
+  - url: https://zefr.com/press
+    status: 200
+    note: >-
+      Company press releases only — product announcements, not a dated API or product
+      changelog. Not recorded as a ChangeLog artifact.
+support:
+  url: https://zefr.com/support
+  status: 200
+  usable: false
+  note: Page exists but is an unpopulated placeholder.
+  primary_channel: https://zefr.com/contact-us
+deprecated_operations: []
+deprecated_operations_note: No OpenAPI exists, so no deprecated operations could be derived.

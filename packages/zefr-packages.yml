@@ -1,0 +1,72 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  registry.npmjs.org (metadata endpoints), PyPI, RubyGems, crates.io, pkg.go.dev and the
+  ZEFR-INC GitHub organization
+note: >-
+  Zefr publishes NO client SDK for any Zefr API in any public registry. The only packages
+  published under a Zefr-controlled account are two internal front-end scaffolding tools
+  from 2017, and they wrap nothing — they are a Yeoman generator for Zefr React components
+  and its companion index repo. They are recorded here as an honest inventory and an
+  abandonment signal (last release 2017-06-05, nine years stale), NOT as API SDKs. No
+  `SDKs` pointer is emitted in apis.yml because Zefr ships no API client library.
+package_count: 2
+official_sdk_count: 0
+packages:
+- name: generator-zefr
+  language: javascript
+  registry: npm
+  url: https://www.npmjs.com/package/generator-zefr
+  version: 1.2.0
+  published: '2017-06-05'
+  official: true
+  is_api_sdk: false
+  license: Apache-2.0
+  repository: https://github.com/ZEFR-INC/npm-private-packages
+  description: Generator for Zefr react components that are npm packages
+  release_count: 5
+  note: >-
+    Yeoman generator for scaffolding Zefr React components. Internal front-end tooling —
+    not a client for any Zefr API. Latest release 2017-06-05; registry metadata last
+    modified 2022-06-18 (a maintainer/dist change, not a publish).
+- name: npm-private-packages
+  language: javascript
+  registry: npm
+  url: https://www.npmjs.com/package/npm-private-packages
+  version: 1.1.0
+  published: '2017-06-05'
+  official: true
+  is_api_sdk: false
+  license: ISC
+  repository: https://github.com/ZEFR-INC/npm-private-packages
+  description: Zefr private npm packages
+  release_count: 1
+  note: >-
+    Index/placeholder package for Zefr's private npm packages. Not a client for any Zefr API.
+    Single release, 2017-06-05.
+registries_checked:
+- registry: npm
+  result: 2 first-party packages found, neither an API SDK
+  queries:
+  - https://registry.npmjs.org/-/v1/search?text=zefr
+  - https://registry.npmjs.org/zefr (404)
+  - https://registry.npmjs.org/zefr-sdk (404)
+  - https://registry.npmjs.org/@zefr/sdk (404)
+- registry: pypi
+  result: none
+  queries:
+  - https://pypi.org/pypi/zefr/json (404)
+  - https://pypi.org/pypi/zefr-sdk/json (404)
+- registry: rubygems
+  result: none
+- registry: crates.io
+  result: none
+- registry: maven-central
+  result: none
+- registry: nuget
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: cdn
+  result: none
+  note: No unpkg/jsDelivr-distributed Zefr build or script-tag loader is documented.

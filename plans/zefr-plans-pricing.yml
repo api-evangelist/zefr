@@ -1,0 +1,35 @@
+generated: '2026-08-12'
+method: searched
+source: https://zefr.com/request-a-demo
+plan_count: 0
+pricing_page:
+  present: false
+  url: null
+  evidence:
+  - url: https://zefr.com/pricing
+    status: 404
+  - url: https://zefr.com/request-a-demo
+    status: 200
+  - url: https://zefr.com/contact-us
+    status: 200
+model: enterprise-contact-sales
+currency: null
+plans: []
+note: >-
+  Zefr publishes no pricing of any kind. There is no /pricing page (404), no plan tiers, no
+  rate card and no self-serve signup — the only commercial entry points on the entire site
+  are "Request a Demo" and "Contact Us". Zefr sells brand suitability and measurement to
+  advertisers, agencies and platforms under negotiated enterprise agreements. plan_count: 0
+  is the finding, not a gap in the search. No `Pricing` pointer is emitted in apis.yml
+  because no pricing page exists to point at.
+self_serve:
+  available: false
+  signup_url: null
+  note: >-
+    suitability.zefr.com is a login for existing customers (Auth0), not a signup. No
+    registration path is exposed.
+free_tier:
+  available: false
+trial:
+  available: false
+  note: A demo request is not a trial.

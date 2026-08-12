@@ -1,0 +1,27 @@
+generated: '2026-08-12'
+method: searched
+source: https://zefr.com/ (full site walk) and anonymous probes of api.zefr.com, api2.zefr.com
+limit_count: 0
+limits: []
+response_headers:
+  documented: []
+  observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header could be observed. Every anonymous
+    request to api.zefr.com is rejected by the Apigee gateway before reaching a proxy
+    (messaging.adaptors.http.flow.ApplicationNotFound), and api2.zefr.com returns a bare
+    404 with no body, so no runtime rate-limit signal is exposed to an unauthenticated caller.
+exhaustion_status_code: null
+note: >-
+  Zefr publishes no rate limits. There is no developer portal, no API reference and no
+  machine-readable contract in which limits could be stated, and the production gateway
+  exposes no rate-limit headers anonymously. limit_count: 0 is an honest measurement, not a
+  skipped search. No `RateLimits` pointer is emitted in apis.yml because there is no
+  published limit or runtime signal to point at.
+evidence:
+- url: https://api.zefr.com/
+  status: 404
+- url: https://api2.zefr.com/
+  status: 404
+- url: https://zefr.com/support
+  status: 200

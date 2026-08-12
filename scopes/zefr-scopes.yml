@@ -1,0 +1,62 @@
+generated: '2026-08-12'
+method: probed
+source: https://login.zefr.com/.well-known/openid-configuration
+note: >-
+  These are the scopes Zefr's own identity provider (Auth0 custom domain login.zefr.com)
+  advertises in its OpenID Connect discovery document, read verbatim. They are the standard
+  OIDC identity-layer scopes — Zefr publishes NO product/API scope reference, and no
+  audience-scoped permissions for any Zefr API. Recorded because they are genuinely published
+  and machine-readable, not because they describe a product authorization model.
+issuer: https://login.zefr.com/
+docs: null
+docs_note: No scopes or permissions reference page is published anywhere on zefr.com.
+scope_count: 14
+scopes:
+- name: openid
+  description: Required for OpenID Connect; returns an ID token.
+  layer: identity
+- name: profile
+  description: Basic profile claims (name, given_name, family_name, nickname, picture, created_at).
+  layer: identity
+- name: offline_access
+  description: Issues a refresh token for long-lived access.
+  layer: identity
+- name: name
+  description: The end user's full name claim.
+  layer: identity
+- name: given_name
+  description: The end user's given name claim.
+  layer: identity
+- name: family_name
+  description: The end user's family name claim.
+  layer: identity
+- name: nickname
+  description: The end user's nickname claim.
+  layer: identity
+- name: email
+  description: The end user's email address claim.
+  layer: identity
+- name: email_verified
+  description: Whether the end user's email address has been verified.
+  layer: identity
+- name: picture
+  description: URL of the end user's profile picture.
+  layer: identity
+- name: created_at
+  description: Account creation timestamp claim.
+  layer: identity
+- name: identities
+  description: Linked identity-provider connections for the account (Auth0 extension).
+  layer: identity
+- name: phone
+  description: The end user's phone number claim.
+  layer: identity
+- name: address
+  description: The end user's address claim.
+  layer: identity
+product_scopes:
+  published: false
+  note: >-
+    No Zefr product API scopes (brand suitability, measurement, reporting, classification)
+    are published. A machine-to-machine client would need an audience and scopes issued
+    privately by Zefr; neither is documented.
