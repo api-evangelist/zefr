@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Zefr is a company surfaced as a portfolio company of felicis, ivp, uncork-capital and added to the API Evangelist network as a stub for enrichment. Sector: adtech. This profile is a lead awaiting the enrichment pipeline.
+Zefr is an ad-tech content intelligence company that classifies social video, image, audio and text so advertisers can buy and measure media against brand safety and suitability standards. Its classification engine labels content across YouTube, Meta (Facebook and Instagram), TikTok, Snapchat, Google Ads and DV360 against the 4A's and GARM frameworks, and its Brand Suitability Suite gives brands pre-bid controls and post-bid measurement from a single console. Zefr has no public developer program: production API infrastructure exists (api.zefr.com is a Google Apigee gateway, alongside api2.zefr.com and api-eu1.zefr.com) but no developer portal, API reference or machine-readable contract is published anywhere, and access runs through a demo request. The only machine-readable documents Zefr serves publicly are the OpenID Connect and OAuth 2.0 Authorization Server Metadata discovery documents on its Auth0 custom domain, login.zefr.com.
 
-Backed by: felicis, ivp, uncork-capital — https://zefr.com
+**Areas:** Company · AdTech · Brand Safety · Brand Suitability · Content Intelligence · Content Moderation · Video · Social Media · Advertising · Media Measurement · Machine Learning
+
+## Zefr on APIs.io
+
+Everything profiled for Zefr is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/zefr/](https://apis.io/providers/zefr/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Zefr Authentication](https://apis.io/security/zefr/zefr-authentication/)
+- [Zefr Domain Security](https://apis.io/security/zefr/zefr-domain-security/)
+- [Zefr Trust Center](https://apis.io/security/zefr/zefr-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Zefr Scopes](https://apis.io/scopes/zefr/zefr-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Zefr Plans Pricing](https://apis.io/plans/zefr/zefr-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Zefr Rate Limits](https://apis.io/rate-limits/zefr/zefr-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://zefr.com)
+- [Support](https://zefr.com/contact-us)
+- [Blog](https://zefr.com/press)
+- [Terms of service](https://zefr.com/terms-of-services)
+- [Privacy policy](https://zefr.com/privacy-policy)
+- [GitHub](https://github.com/ZEFR-INC)
+
+## API Evangelist rating
+
+**Kin Score 21.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 35.5 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 36.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/zefr/](https://apis.io/providers/zefr/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Zefr: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/zefr/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
